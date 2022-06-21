@@ -1,0 +1,65 @@
+<div class="panel panel-default">
+    <div class="panel-body">
+        <h4>Data HAIS</h4>
+        <div class="table-responsive no-margin">
+            <table class="table table-bordered no-padding" width="100%">
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Tanggal</th>
+                        <th>No.Rawat</th>
+                        <th>No.R.M</th>
+                        <th>Nama Pasien</th>
+                        <th>ETT</th>
+                        <th>CVL</th>
+                        <th>IVL</th>
+                        <th>UC</th>
+                        <th>VAP</th>
+                        <th>IAD</th>
+                        <th>PLEB</th>
+                        <th>ISK</th>
+                        <th>ILO</th>
+                        <th>HAP</th>
+                        <th>Tinea</th>
+                        <th>Scabies</th>
+                        <th>Deku</th>
+                        <th>Sputum</th>
+                        <th>Darah</th>
+                        <th>Urine</th>
+                        <th>ANTIBIOTIK</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {loop: $hais}
+                    <tr>
+                        <td>{$value.nomor}</td>
+                        <td>
+                            {$value.tanggal}<br>
+                        </td>
+                        <td>{$value.no_rawat}</td>
+                        <td>{$value.no_rkm_medis}</td>
+                        <td>{$value.nm_pasien}</td>
+                        <td>{$value.ETT}</td>
+                        <td>{$value.CVL}</td>
+                        <td>{$value.IVL}</td>
+                        <td>{$value.UC}</td>
+                        <td>{$value.VAP}</td>
+                        <td>{$value.IAD}</td>
+                        <td>{$value.PLEB}</td>
+                        <td>{$value.ISK}</td>
+                        <td>{$value.ILO}</td>
+                        <td>{$value.HAP}</td>
+                        <td>{$value.Tinea}</td>
+                        <td>{$value.Scabies}</td>
+                        <td>{$value.DEKU}</td>
+                        <td>{$value.SPUTUM}</td>
+                        <td>{$value.DARAH}</td>
+                        <td>{$value.URINE}</td>
+                        <td>{$value.ANTIBIOTIK}</td>
+                    </tr>
+                    {/loop}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

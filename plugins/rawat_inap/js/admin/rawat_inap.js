@@ -4,7 +4,7 @@ $("#form_soap").hide();
 $("#form_sep").hide();
 $("#form_berkasdigital").hide();
 $("#histori_pelayanan").hide();
-$("#formhais").hide();
+$("#form_hais").hide();
 $("#hais").hide();
 $("#notif").hide();
 $('#provider').hide();
@@ -298,7 +298,7 @@ $('#manage').on('click', '#submit_periode_rawat_inap', function(event){
     $("#rincian").hide();
     $("#sep").hide();
     $("#soap").hide();
-    $("#formhais").hide();
+    $("#form_hais").hide();
     $('.periode_rawat_inap').datetimepicker('remove');
   });
 
@@ -332,7 +332,7 @@ $('#manage').on('click', '#masuk_periode_rawat_inap', function(event){
     $("#rincian").hide();
     $("#sep").hide();
     $("#soap").hide();
-    $("#formhais").hide();
+    $("#form_hais").hide();
     $('.periode_rawat_inap').datetimepicker('remove');
   });
 
@@ -366,7 +366,7 @@ $('#manage').on('click', '#pulang_periode_rawat_inap', function(event){
     $("#rincian").hide();
     $("#sep").hide();
     $("#soap").hide();
-    $("#formhais").hide();
+    $("#form_hais").hide();
     $('.periode_rawat_inap').datetimepicker('remove');
   });
 
@@ -400,7 +400,7 @@ $('#manage').on('click', '#lunas_periode_rawat_inap', function(event){
     $("#rincian").hide();
     $("#sep").hide();
     $("#soap").hide();
-    $("#formhais").hide();
+    $("#form_hais").hide();
     $('.periode_rawat_inap').datetimepicker('remove');
   });
 
@@ -596,7 +596,7 @@ $("#form_rincian").on("click", "#selesai", function(event){
   $("#rincian").hide();
   $("#soap").hide();
   $("#berkasdigital").hide();
-  $("#formhais").hide();
+  $("#form_hais").hide();
 });
 
 // tombol batal diklik
@@ -610,7 +610,7 @@ $("#form_soap").on("click", "#selesai_soap", function(event){
   $("#rincian").hide();
   $("#soap").hide();
   $("#berkasdigital").hide();
-  $("#formhais").hide();
+  $("#form_hais").hide();
 });
 
 // ketika baris data diklik
@@ -618,14 +618,12 @@ $("#form_soap").on("click", "#selesai_soap", function(event){
 
 //hais
 // ketika tombol simpan diklik
-$("#formhais").on("click", "#simpan_hais", function(event){
+$("#form_hais").on("click", "#simpan_hais", function(event){
     var baseURL = mlite.url + '/' + mlite.admin;
     event.preventDefault();
 
     var no_rawat        = $('input:text[name=no_rawat]').val();
     var tanggal         = $('input:text[name=tanggal]').val();
-    var no_rkm_medis    = $('input:text[name=no_rkm_medis]').val();
-    var nm_pasien       = $('input:text[name=nm_pasien]').val();
     var kd_kamar        = $('input:text[name=kd_kamar]').val();
     var DEKU            = $('select[name=DEKU]').val();
     var SPUTUM          = $('input:text[name=SPUTUM]').val();
@@ -644,58 +642,41 @@ $("#formhais").on("click", "#simpan_hais", function(event){
     var Tinea            = $('input:text[name=Tinea]').val();
     var Scabies          = $('input:text[name=Scabies]').val();
     var ANTIBIOTIK       = $('input:text[name=ANTIBIOTIK]').val();
-console.log({no_rawat : no_rawat,
-  tanggal: tanggal,
-  kd_kamar: kd_kamar,
-  DEKU: DEKU,
-  SPUTUM: SPUTUM , 
-  DARAH: DARAH,  
-  URINE: URINE,  
-  ETT : ETT, 
-  CVL : CVL, 
-  IVL : IVL, 
-  UC : UC,  
-  VAP : VAP,
-  IAD : IAD,
-  PLEB : PLEB,
-  ISK : ISK,
-  ILO : ILO,
-  HAP : HAP,
-  Tinea : Tinea,
-  Scabies : Scabies,
-  ANTIBIOTIK : ANTIBIOTIK
-  });
     
     var url = baseURL + '/rawat_inap/savehais?t=' + mlite.token;
-    $.post(url, {no_rawat : no_rawat,
-    tanggal: tanggal,
-    kd_kamar: kd_kamar,
-    DEKU: DEKU,
-    SPUTUM: SPUTUM , 
-    DARAH: DARAH,  
-    URINE: URINE,  
-    ETT : ETT, 
-    CVL : CVL, 
-    IVL : IVL, 
-    UC : UC,  
-    VAP : VAP,
-    IAD : IAD,
-    PLEB : PLEB,
-    ISK : ISK,
-    ILO : ILO,
-    HAP : HAP,
-    Tinea : Tinea,
-    Scabies : Scabies,
-    ANTIBIOTIK : ANTIBIOTIK
+    $.post(url, {
+      no_rawat : no_rawat,
+      tanggal: tanggal,
+      kd_kamar: kd_kamar,
+      DEKU: DEKU,
+      SPUTUM: SPUTUM , 
+      DARAH: DARAH,  
+      URINE: URINE,  
+      ETT : ETT, 
+      CVL : CVL, 
+      IVL : IVL, 
+      UC : UC,  
+      VAP : VAP,
+      IAD : IAD,
+      PLEB : PLEB,
+      ISK : ISK,
+      ILO : ILO,
+      HAP : HAP,
+      Tinea : Tinea,
+      Scabies : Scabies,
+      ANTIBIOTIK : ANTIBIOTIK
     }, function(data) {
       console.log(data);
       // tampilkan data
       var url = baseURL + '/rawat_inap/hais?t=' + mlite.token;
-      $.post(url, {no_rawat : no_rawat,
+      $.post(url, {
+        no_rawat : no_rawat,
       }, function(data) {
         // tampilkan data
-        $("#hais").html(data).show();
+        console.log(data);
+        $("#hais").html(data);
       });
+
       $('input:text[name=DEKU]').val("");
       $('input:text[name=SPUTUM]').val("");
       $('input:text[name=DARAH]').val("");
@@ -788,7 +769,7 @@ $("#hais").on("click",".hapus_hais", function(event){
         $.post(url, {no_rawat : no_rawat,
         }, function(data) {
           // tampilkan data
-          $("#formhais").html(data).show();
+          $("#form_hais").html(data).show();
         });
         $('input:text[name=DEKU]').val("");
         $('input:text[name=SPUTUM]').val("");
@@ -831,7 +812,7 @@ $("#form_rincian").on("click", "#selesai", function(event){
   $("#rincian").hide();
   $("#soap").hide();
   $("#berkasdigital").hide();
-  $("#formhais").hide();
+  $("#form_hais").hide();
 });
 
 // tombol batal diklik
@@ -845,7 +826,8 @@ $("#form_hais").on("click", "#selesai_hais", function(event){
   $("#rincian").hide();
   $("#soap").hide();
   $("#berkasdigital").hide();
-  $("#formhais").hide();
+  $("#form_hais").hide();
+  $("#hais").hide();
 });
 
 // ketika inputbox pencarian diisi

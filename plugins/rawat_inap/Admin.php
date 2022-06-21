@@ -634,40 +634,29 @@ class Admin extends AdminModule
       $result = [];
       foreach ($rows as $row) {
         $row['nomor'] = $i++;
-        $row['kd_kamar'] = $this->db('kamar') 
-        ->join('bangsal', 'bangsal.kd_bangsal=kamar.kd_kamar')
-        ->where('kd_kamar', $row['kd_kamar'])
-        ->oneArray();
         
-        // $row['no_rkm_medis'] = $this->db('reg_periksa') 
-        // ->join('pasien', 'pasien.nm_pasien=reg_periksa.no_rkm_medis')
-        // ->where('no_rawat', $row['no_rawat'])
-        // ->oneArray();
+        $pasien = $this->db('reg_periksa') 
+          ->join('pasien', 'pasien.no_rkm_medis=reg_periksa.no_rkm_medis')
+          ->where('no_rawat', $row['no_rawat'])
+          ->oneArray();
+
+        $row['no_rkm_medis'] = $pasien['no_rkm_medis'];
+        $row['nm_pasien'] = $pasien['nm_pasien'];
 
         $result[] = $row;
       }
 
-      echo $this->draw('formhais.html', ['pemeriksaan' => $result]);
+      echo $this->draw('hais.html', ['hais' => $result]);
       exit();
     }
 
     public function postSaveHAIS()
-    { 
-      // $check_db = $this->db()->pdo()->query("SHOW COLUMNS FROM `data_hais` ");
-      // $check_db->execute();
-      // $check_db = $check_db->fetch();
-
-      // // if($check_db) {
-      // //   $_POST['nip'] = $this->core->getUserInfo('username', null, true);
-      // // } else {
-      // //   unset($_POST['instruksi']);
-      // // }
-
-      // if(!$this->db('data_hais')->where('no_rawat', $_POST['no_rawat'])->where('tanggal', $_POST['tanggal'])->oneArray()) {
+    {
+      if(!$this->db('data_hais')->where('no_rawat', $_POST['no_rawat'])->where('tanggal', $_POST['tanggal'])->oneArray()) {
         $this->db('data_hais')->save($_POST);
-      // } else {
-      //   $this->db('data_hais')->where('no_rawat', $_POST['no_rawat'])->where('tanggal', $_POST['tanggal'])->save($_POST);
-      // }
+      } else {
+        $this->db('data_hais')->where('no_rawat', $_POST['no_rawat'])->where('tanggal', $_POST['tanggal'])->save($_POST);
+      }
       exit();
     }
 
@@ -756,7 +745,7 @@ class Admin extends AdminModule
     // public function getFormHais($no_rawat, $tanggal)
     // {
     //   $url = url([ADMIN, 'data_hais', 'no_rawat', $norawat, $tanggal]);
-    //   echo $this->draw('formhais.html', ['url' => $url]);
+    //   echo $this->draw('form_hais.html', ['url' => $url]);
     //   exit();
     // }
        
