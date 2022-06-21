@@ -1,0 +1,218 @@
+<div class="" id="formhais">
+  <div class="col-md-3">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <div class="form-group">
+          <label for="tanggal">Tanggal</label>
+          <input type="text" id="tanggal" name="tanggal" class="form-control tanggal" value="{?=date('Y-m-d')?}">
+        </div>
+        <div class="form-group">
+          <label for="no_rawat"> No.Rawat</label>
+          <input type="text" name="no_rawat" placeholder="ID Pendaftaran" class="form-control" value="" readonly>
+        </div>
+        <div class="form-group">
+          <label for="no_rkm_medis">Nomor RM</label>
+          <input type="text" name="no_rkm_medis" class="form-control" placeholder="Nomor Rekam Medik" value="" readonly>
+        </div>
+        <div class="form-group">
+          <label for="nama_pasien">Nama Pasien</label>
+          <input type="text" name="nm_pasien" class="form-control" placeholder="Nama pasien" value="" readonly>
+        </div>
+        <div class="form-group">
+          <label for="kd_kamar">Kode Kamar</label>
+          <input type="text" name="kd_kamar" class="form-control" placeholder="Kode Kamar" value="" readonly>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="col-md-9">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <div class="form-group">
+            <div class="row">
+              <div class="col-sm-3">
+                <label for="DEKU">Deku</label>
+                <select id="DEKU" name="DEKU" class="form-control">
+                  <option value="IYA">IYA</option>
+                  <option value="TIDAK">TIDAK</option>
+                </select>
+              </div>
+              <div class="col-sm-3">
+                <label for="SPUTUM">Sputum</label>
+                <input type="text" name="SPUTUM" class="form-control" placeholder="" value="">
+              </div>
+              <div class="col-sm-3">
+                <label for="DARAH">Darah</label>
+                <input type="text" name="DARAH" class="form-control" placeholder="" value="">
+              </div>
+              <div class="col-sm-3">
+                <label for="URINE">Urine</label>
+                <input type="text" name="URINE" class="form-control" placeholder="" value="">
+              </div>
+            </div>
+            </div>
+         
+          <h4>Hari Pemasangan Alat :</h4>
+          <div class="form-group">
+            <div class="row">
+              <div class="col-sm-3">
+                <label for="ETT">ETT :</label>
+                <input type="text" name="ETT" class="form-control" placeholder="" value="">
+              </div>
+              <div class="col-sm-3">
+                <label for="CVL">CVL :</label>
+                <input type="text" name="CVL" class="form-control" placeholder="" value="">
+              </div>
+              <div class="col-sm-3">
+                <label for="IVL">IVL :</label>
+                <input type="text" name="IVL" class="form-control" placeholder="" value="">
+              </div>
+              <div class="col-sm-3">
+                <label for="UC">UC :</label>
+                <input type="text" name="UC" class="form-control" placeholder="" value="">
+              </div>
+            </div>
+          </div>
+          <h4>Infeksi RS :</h4>
+          <div class="form-group">
+            <div class="row">
+              <div class="col-sm-3">
+                <label for="VAP">VAP :</label>
+                <input type="text" name="VAP" class="form-control" placeholder="" value="">
+              </div>
+              <div class="col-sm-3">
+                <label for="IAD">IAD :</label>
+                <input type="text" name="IAD" class="form-control" placeholder="" value="">
+              </div>
+              <div class="col-sm-3">
+                <label for="PLEB">PLEB :</label>
+                <input type="text" name="PLEB" class="form-control" placeholder="" value="">
+              </div>
+              <div class="col-sm-3">
+                <label for="nama_pasien">ISK :</label>
+                <input type="text" name="ISK" class="form-control" placeholder="" value="">
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="row">
+              <div class="col-sm-3">
+                <label for="nama_pasien">ILO :</label>
+                <input type="text" name="ILO" class="form-control" placeholder="" value="">
+              </div>
+              <div class="col-sm-3">
+                <label for="nama_pasien">HAP :</label>
+                <input type="text" name="HAP" class="form-control" placeholder="" value="">
+              </div>
+              <div class="col-sm-3">
+                <label for="nama_pasien">Tinea :</label>
+                <input type="text" name="Tinea" class="form-control" placeholder="" value="">
+              </div>
+              <div class="col-sm-3">
+                <label for="nama_pasien">Scabies :</label>
+                <input type="text" name="Scabies" class="form-control" placeholder="" value="">
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="nama_pasien">Antibiotik :</label>
+            <input type="text" name="ANTIBIOTIK" class="form-control" placeholder="" value="">
+          </div>
+          <div class="m-t-xl">
+            <button type="button" name="button" class="btn btn-primary" id="simpan_hais"><i class="fa fa-save"></i><span
+                class="hidden-xs"> Simpan</span></button>
+            <button type="button" name="button" class="btn btn-success" id="selesai_hais"><i
+                class="fa fa-check"></i><span class="hidden-xs"> Selesai</span></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="hais">
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <h4>Data HAIS</h4>
+      <div class="table-responsive no-margin">
+        <table class="table table-bordered no-padding" width="100%">
+          <thead>
+            <tr>
+              <th>No</th>
+              <th>Tanggal</th>
+              <th>No.Rawat</th>
+              <th>No.R.M</th>
+              <th>Nama Pasien</th>
+              <th>ETT</th>
+              <th>CVL</th>
+              <th>IVL</th>
+              <th>UC</th>
+              <th>VAP</th>
+              <th>IAD</th>
+              <th>PLEB</th>
+              <th>ISK</th>
+              <th>ILO</th>
+              <th>HAP</th>
+              <th>Tinea</th>
+              <th>Scabies</th>
+              <th>Deku</th>
+              <th>Sputum</th>
+              <th>Darah</th>
+              <th>Urine</th>
+              <th>ANTIBIOTIK</th>
+            </tr>
+          </thead>
+          <tbody>
+            {loop: $pemeriksaan}
+            <tr>
+              <td>{$value.nomor}</td>
+              <td>
+                {$value.tanggal}<br>
+              </td>
+              <td>{$value.no_rawat}</td>
+              <td>{$value.no_rkm_medis}</td>
+              <td>{$value.nm_pasien}</td>
+              <td>{$value.ETT}</td>
+              <td>{$value.CVL}</td>
+              <td>{$value.IVL}</td>
+              <td>{$value.UC}</td>
+              <td>{$value.VAP}</td>
+              <td>{$value.IAD}</td>
+              <td>{$value.PLEB}</td>
+              <td>{$value.ISK}</td>
+              <td>{$value.ILO}</td>
+              <td>{$value.HAP}</td>
+              <td>{$value.Tinea}</td>
+              <td>{$value.Scabies}</td>
+              <td>{$value.DEKU}</td>
+              <td>{$value.SPUTUM}</td>
+              <td>{$value.DARAH}</td>
+              <td>{$value.URINE}</td>
+              <td>{$value.ANTIBIOTIK}</td>
+            </tr>
+            <tr>
+              <td>
+                <div class="">
+                  <button type="button" name="button" class="btn btn-success btn-xs edit_hais"
+                    data-tanggal="{$value.tanggal}" data-no_rawat="{$value.no_rawat}"
+                    data-no_rkm_medis="{$value.no_rkm_medis}" data-nm_pasien="{$value.nm_pasien}" data-ETT="{$data.ETT}"
+                    data-CVL="{$data.CVL}" data-IVL="{$data.IVL}" data-UC="{$data.UC}" data-VAP="{$data.VAP}"
+                    data-IAD="{$data.IAD}" data-PLEB="{$data.PLEB}" data-ISK="{$data.ISK}" data-ILO="{$data.ILO}"
+                    data-HAP="{$data.HAP}" data-Tinea="{$data.Tinea}" data-Scabies="{$data.Scabies}"
+                    data-DEKU="{$data.DEKU}" data-SPUTUM="{$data.SPUTUM}" data-DARAH="{$data.DARAH}"
+                    data-URINE="{$data.URINE}" data-ANTIBIOTIK="{$data.ANTIBIOTIK}" disabled><span
+                      class="fa fa-edit"></span><span class="hidden-xs"> Edit</span></button>
+                  <button type="button" name="button" class="btn btn-danger btn-xs hapus_hais"
+                    data-no_rawat="{$value.no_rawat}" data-tanggal="{$value.tanggal}"><span
+                      class="fa fa-trash"></span><span class="hidden-xs"> Hapus</span></button>
+                </div>
+              </td>
+            </tr>
+            {/loop}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
